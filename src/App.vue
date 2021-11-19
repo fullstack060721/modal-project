@@ -2,13 +2,13 @@
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
 
-  <div v-if="showModal">
-    <Modal :heading="heading" :text="text" theme="sale" @close="toggleModal" />
+  <div v-if="showModalTwo">
+    <Modal :heading="heading" :text="text" theme="sale" @close="toggleModalTwo" />
     <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:close="toggleModal" /> -->
     <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:my-event="toggleModal" /> -->
   </div>  
-  <button @click.right="toggleModal">open modal using right click</button><br />
-  <button @click.alt="toggleModal">open modal using Alt</button>
+  <button @click="toggleModal">open modal using right click</button> 
+  <button @click="toggleModalTwo">open challenge modal</button>
 
 </template>
 
@@ -25,11 +25,15 @@ export default {
       heading: 'Sign up for the Giveaway!',
       text: 'Grab your swag for half price!',
       showModal: false,
+      showModalTwo: false
     }
   },
     methods: {
     toggleModal() {
       this.showModal = !this.showModal
+    },
+    toggleModalTwo() {
+      this.showModalTwo = !this.showModalTwo
     }
   }
 }
