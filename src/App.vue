@@ -1,25 +1,35 @@
 <template>
-  <h1> {{ title }} </h1>
-  <p>Welcome ... </p>
-  <Modal :heading="heading" :text="text" theme="sale"/>
-  <Modal :heading="heading" :text="text" theme="no sale"/>
+  <h1>{{ title }}</h1>
+  <p>Welcome...</p>
+
+  <div v-if="showModal">
+    <Modal :heading="heading" :text="text" theme="sale" @close="toggleModal" />
+    <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:close="toggleModal" /> -->
+    <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:my-event="toggleModal" /> -->
+  </div>  
+  <button @click="toggleModal">open modal</button>
+
 </template>
 
 <script>
-
+// emitter(string, function ...)
+// emitter('close', this.toggleModal)
 import Modal from './components/Modal.vue'
-
 export default {
   name: 'App',
+  components: { Modal },
   data() {
     return {
-      title: 'My first Vue app!',
-      heading: 'Sign up for the Giveaway',
-      text: 'Grab your swag for half price'
+      title: 'My First Vue App!',
+      heading: 'Sign up for the Giveaway!',
+      text: 'Grab your swag for half price!',
+      showModal: false,
     }
   },
-  components: {
-    Modal
+    methods: {
+    toggleModal() {
+      this.showModal = !this.showModal
+    }
   }
 }
 </script>
@@ -32,5 +42,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  border-bottom: 1px solid #ddd;
+  display: inline-block;
+  padding-bottom: 10px;
 }
 </style>
