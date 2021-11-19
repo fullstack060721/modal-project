@@ -1,5 +1,7 @@
 <template>
   <h1>{{ title }} </h1>
+  <input type="text" ref="name" focus={{}}>
+  <button @click="handleClick">Click me</button>
 </template>
 
 <script>
@@ -7,7 +9,14 @@ export default {
   name: 'App',
   data() {
     return {
-      title: 'My Vue'
+      title: 'My First Vue App!'
+    }
+  },
+  methods: {
+    handleClick() {
+      console.log(this.$refs.name)
+      this.$refs.name.classList.add('active')
+      this.$refs.name.focus()
     }
   }
 }
@@ -15,10 +24,8 @@ export default {
 
 <style>
 h1 {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #ec0e19;
-  margin-top: 60px;}
+  border-bottom : 1px solid #ddd;
+  display: inline block;
+  padding-bottom : 10 px
+  }
 </style>
