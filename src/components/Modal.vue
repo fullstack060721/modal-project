@@ -1,6 +1,8 @@
 <template>
 
-  <div class="backdrop" @click="closeModal">
+  <!-- now you must click outside the red border in order to close -->
+  <div class="backdrop" @click.self="closeModal">
+      <!--<div class="backdrop" @click.self="closeModal">-->
 
     <div class="modal" :class="{ sale: theme === 'sale' }">
       <h1>{{ heading }}</h1>

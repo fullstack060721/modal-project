@@ -7,7 +7,8 @@
     <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:close="toggleModal" /> -->
     <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:my-event="toggleModal" /> -->
   </div>  
-  <button @click="toggleModal">open modal</button>
+  <button @click.right="toggleModal">open modal using right click</button><br />
+  <button @click.alt="toggleModal">open modal using Alt</button>
 
 </template>
 
