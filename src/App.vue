@@ -1,28 +1,36 @@
 <template>
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
-
   <div v-if="showModal">
-    <Modal :heading="heading" :text="text" theme="sale" @close="toggleModal" />
-    <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:close="toggleModal" /> -->
-    <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:my-event="toggleModal" /> -->
+
+    <Modal theme="sale" @close="toggleModal">
+      <template v-slot:links>
+        <p>{{ title }}</p>        
+        <a href="#">Sign Up now</a>
+        <a href="#">More Info</a>
+      </template>
+    </Modal>
+
   </div>  
-  <button @click="toggleModal">open modal</button>
+
+  <button @click.alt="toggleModal">open modal</button>
 
 </template>
 
 <script>
-// emitter(string, function ...)
-// emitter('close', this.toggleModal)
+
 import Modal from './components/Modal.vue'
+
 export default {
   name: 'App',
   components: { Modal },
   data() {
     return {
       title: 'My First Vue App!',
+
       heading: 'Sign up for the Giveaway!',
       text: 'Grab your swag for half price!',
+
       showModal: false,
     }
   },
