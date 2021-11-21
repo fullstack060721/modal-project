@@ -2,6 +2,11 @@
   <h1>{{ title }}</h1>
   <p>Welcome...</p>
 
+  <div v-if="showModal">
+    <Modal :heading="heading" :text="'Hi'" theme="sale" @close="toggleModal" />
+    <!-- <Modal :heading="heading" :text="'hi'" theme="sale" v-on:close="toggleModal" /> -->
+    <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:my-event="toggleModal" /> -->
+  </div> 
   <div v-if="showModalTwo">
     <Modal :heading="heading" :text="text" theme="sale" @close="toggleModalTwo" />
     <!-- <Modal :heading="heading" :text="text" theme="sale" v-on:close="toggleModal" /> -->
