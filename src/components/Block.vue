@@ -20,6 +20,7 @@ export default {
       setTimeout(() => {
           this.showBlock = true
 
+          // you can also save current time here instead of using a timer
           this.startTimer();
 
           console.log(this.delay)
@@ -39,6 +40,8 @@ export default {
           }, 10)
       },
       stopTimer() {
+          // you can also get current time here and subtract the first timer 
+          // in order to get the time diff, instead of using the timer ...
           clearInterval(this.timer)
           this.$emit('end', this.reactionTime)
       }

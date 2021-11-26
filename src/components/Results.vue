@@ -17,6 +17,9 @@ export default ({
         if (this.score < 500) {
             this.rank = "Ninja fingers !"
         }
+        else {
+            this.rank = "you can do better ..."
+        }
     }
 })
 </script>
